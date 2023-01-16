@@ -19,7 +19,7 @@ return new class extends Migration
 			$table->string('title');
 			$table->json('meta');
 			
-			$table->timestamp();
+			$table->timestamps();
 			$table->softDeletes();
         });
     }

@@ -6,14 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-	// TODO: move to another folder
-	const QUESTIONS_TYPE = [
-		'Single',
-		'Mutltiply',
-		'DoubleDimension',
-		'Text'
-	];
-	
     /**
      * Run the migrations.
      *
@@ -23,11 +15,9 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-			$table->foreignIdFor(\App\Models\Form::class);
-			$table->enum('type', self::QUESTIONS_TYPE);
-			$table->jsonb('structure');
-			
-            $table->timestamps();
+			$table->foreignIdFor(\App\Models\QuestionStructure::class, 'connected_to')
+					->constrained('question_structures');
+			$table->string('text');
         });
     }
 
