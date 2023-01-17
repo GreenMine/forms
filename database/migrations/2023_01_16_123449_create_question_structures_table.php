@@ -1,19 +1,12 @@
 <?php
 
+use App\Enums\QuestionType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-	// TODO: move to another folder
-	const QUESTIONS_TYPE = [
-		'Single',
-		'Mutltiply',
-		'DoubleDimension',
-		'Text'
-	];
-	
 	/**
      * Run the migrations.
      *
@@ -25,10 +18,8 @@ return new class extends Migration
             $table->id();
 			$table->foreignIdFor(\App\Models\Form::class)
 					->constrained('forms');
-			$table->enum('type', self::QUESTIONS_TYPE);
+			$table->tinyInteger('type');
 			$table->json('structure');
-			
-            $table->timestamps();
         });
     }
 

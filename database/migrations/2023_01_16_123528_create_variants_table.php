@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('variants', function (Blueprint $table) {
             $table->id();
-			$table->foreignIdFor(\App\Models\Question::class)
+			$table->foreignIdFor(\App\Models\QuestionStructure::class)
 					->constrained('questions');
 			$table->string('text');
         });
