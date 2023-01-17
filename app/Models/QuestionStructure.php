@@ -19,6 +19,8 @@ class QuestionStructure extends Model
 {
     use HasFactory;
 	
+	public $timestamps = false;
+	
 	protected $casts = [
 		'type' => QuestionType::class
 	];

@@ -15,4 +15,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Question extends Model
 {
     use HasFactory;
+	
+	public $timestamps = false;
 }
