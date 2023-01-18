@@ -4,8 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "16430c65c4f5f984eae6f6536448c895",
+    "content-hash": "e230382c1843de20d1aa28abc8dcd2e6",
     "packages": [
+        {
+            "name": "biscofil/laravel-submodels",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/biscofil/laravel-submodels.git",
+                "reference": "164b4319f4c8f7c5c1f06f598d3ddedaf728550c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/biscofil/laravel-submodels/zipball/164b4319f4c8f7c5c1f06f598d3ddedaf728550c",
+                "reference": "164b4319f4c8f7c5c1f06f598d3ddedaf728550c",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": ">=5.4"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.1",
+                "phpunit/phpunit": "^8.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Biscofil\\LaravelSubmodels\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "mit"
+            ],
+            "authors": [
+                {
+                    "name": "Filippo Bisconcin",
+                    "email": "filippo.bisconcin@gmail.com",
+                    "homepage": "http://biscofil.it"
+                }
+            ],
+            "description": "Create Laravel submodels",
+            "homepage": "https://github.com/biscofil/laravelsubmodels",
+            "keywords": [
+                "hierarchy",
+                "laravel",
+                "model",
+                "sub-models",
+                "trait"
+            ],
+            "support": {
+                "issues": "https://github.com/biscofil/laravel-submodels/issues",
+                "source": "https://github.com/biscofil/laravel-submodels/tree/v2"
+            },
+            "abandoned": true,
+            "time": "2019-10-10T16:49:14+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.10.2",
@@ -7811,5 +7865,5 @@
         "php": "^8.0.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }
