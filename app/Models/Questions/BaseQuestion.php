@@ -1,32 +1,28 @@
 <?php
 namespace App\Models\Questions;
 
+use App\Enums\QuestionType;
 use App\Models\Question;
 use App\Models\Variant;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int $type
+ * @property QuestionType $type
  */
 class BaseQuestion extends Model implements BaseQuestionInterface {
-	protected $table = 'question_structures';
-	
 	use \Biscofil\LaravelSubmodels\HasSubModels;
 	
-	const TYPES_ASSOCIATION = [
-		0 => Single::class,
-		2 => DoubleDimension::class
+	protected $table = 'question_structures';
+	
+	protected $casts = [
+		'type' => QuestionType::class,
 	];
 	
 	/**
 	 * @param BaseQuestion $model
 	 */
 	public function getSubModelClass($model) {
-		$modelType = $model->type;
-		if(isset(self::TYPES_ASSOCIATION[$modelType]))
-			return self::TYPES_ASSOCIATION[$modelType];
-		
-		return Single::class;
+		return __NAMESPACE__ . '\\' . $model->type->name;
 	}
 	
 	public function question() {
