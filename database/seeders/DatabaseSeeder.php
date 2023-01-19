@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
 				
 				Log::info("Created question structure(id $qStructureId)");
 				
+				//FIXME: match
 				$variants = array();
 				$questions = array();
 				switch($qStructure->type) {

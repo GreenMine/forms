@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property QuestionType $type
+ *
+ * @property Question $question
+ * @property Variant[] $variants
  */
 class BaseQuestion extends Model implements BaseQuestionInterface {
 	use \Biscofil\LaravelSubmodels\HasSubModels;
@@ -26,10 +29,10 @@ class BaseQuestion extends Model implements BaseQuestionInterface {
 	}
 	
 	public function question() {
-		return $this->hasOne(Question::class);
+		return $this->hasOne(Question::class, 'connected_to');
 	}
 	
 	public function variants() {
-		return $this->hasMany(Variant::class);
+		return $this->hasMany(Variant::class, 'connected_to');
 	}
 }

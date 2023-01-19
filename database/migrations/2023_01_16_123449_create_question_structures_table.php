@@ -19,7 +19,6 @@ return new class extends Migration
 			$table->foreignIdFor(\App\Models\Form::class)
 					->constrained('forms');
 			$table->tinyInteger('type');
-			$table->json('structure');
         });
     }
 
