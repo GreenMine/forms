@@ -1,6 +1,6 @@
 @php /** @var \App\Models\Questions\Several $question */ @endphp
 <label for="role" id="label-role">
-    Single {{ $question->question->text }}
+    {{ $question->question->text }}
 </label>
 
 <select name="question[{{ $question->id }}]" id="role">

@@ -6,9 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content=
             "width=device-width, initial-scale=1.0">
-    <title>
-        Build a Survey Form using HTML and CSS
-    </title>
 
     <style>
 
@@ -23,7 +20,7 @@
         /* Styling the Form (Color, Padding, Shadow) */
         form {
             background-color: #fff;
-            max-width: 500px;
+            max-width: 60%;
             margin: 50px auto;
             padding: 30px 20px;
             box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);

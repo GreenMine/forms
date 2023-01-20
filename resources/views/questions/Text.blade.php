@@ -3,6 +3,4 @@
     {{ $question->question->text }}
 </label>
 
-<input type="email"
-       id="email"
-       placeholder="Enter answer" />
+<input type="text" placeholder="Enter answer" />

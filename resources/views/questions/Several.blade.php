@@ -1,10 +1,14 @@
 @php /** @var \App\Models\Questions\Several $question */ @endphp
 <label for="role" id="label-role">
-    Several {{ $question->question->text }}
+    {{ $question->question->text }}
+    <small>(Check all that apply)</small>
 </label>
-
-<select name="question[{{ $question->id }}]" id="role">
-    @foreach($question->variants as $variant)
-        <option value="{{ $variant->id }}">{{ $variant->text }}</option>
-    @endforeach
-</select>
+@foreach($question->variants as $variant)
+    <label>
+        <input type="checkbox"
+               name="question[{{$question->question->id}}]"
+               value="{{ $variant->id }}"
+        >
+        {{ $variant->text }}
+    </label>
+@endforeach
