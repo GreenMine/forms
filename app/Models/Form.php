@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Questions\BaseQuestion;
+use App\Models\Questions\Question;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $name
  * @property string title
  * @property array $meta
- * @property BaseQuestion[] questions
+ * @property Question[] questions
  *
  * @property Carbon $created_at
  * @property Carbon $updated_at
@@ -25,6 +25,6 @@ class Form extends Model
     use HasFactory;
 	
 	public function questions(): HasMany {
-		return $this->hasMany(BaseQuestion::class);
+		return $this->hasMany(Question::class);
 	}
 }

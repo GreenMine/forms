@@ -3,6 +3,6 @@
 namespace App\Models\Questions;
 
 
-class Text extends BaseQuestion {
+class Text extends Question {
 
 }

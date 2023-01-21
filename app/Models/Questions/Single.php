@@ -1,5 +1,5 @@
 <?php
 namespace App\Models\Questions;
 
-class Single extends BaseQuestion {
+class Single extends Question {
 }

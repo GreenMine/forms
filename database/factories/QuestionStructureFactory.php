@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Enums\QuestionType;
-use App\Models\Question;
+use App\Models\QuestionContent;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

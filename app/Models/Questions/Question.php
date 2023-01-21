@@ -2,17 +2,17 @@
 namespace App\Models\Questions;
 
 use App\Enums\QuestionType;
-use App\Models\Question;
+use App\Models\QuestionContent;
 use App\Models\Variant;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property QuestionType $type
  *
- * @property Question $question
+ * @property QuestionContent $question
  * @property Variant[] $variants
  */
-class BaseQuestion extends Model implements BaseQuestionInterface {
+class Question extends Model implements QuestionInterface {
 	use \Biscofil\LaravelSubmodels\HasSubModels;
 	
 	protected $table = 'question_structures';
@@ -22,14 +22,14 @@ class BaseQuestion extends Model implements BaseQuestionInterface {
 	];
 	
 	/**
-	 * @param BaseQuestion $model
+	 * @param Question $model
 	 */
 	public function getSubModelClass($model) {
 		return __NAMESPACE__ . '\\' . $model->type->name;
 	}
 	
 	public function question() {
-		return $this->hasOne(Question::class, 'connected_to');
+		return $this->hasOne(QuestionContent::class, 'connected_to');
 	}
 	
 	public function variants() {

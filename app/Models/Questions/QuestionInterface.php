@@ -1,7 +1,7 @@
 <?php
 namespace App\Models\Questions;
 
-interface BaseQuestionInterface {
+interface QuestionInterface {
 	public function question();
 	
 	public function variants();

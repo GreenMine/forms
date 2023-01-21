@@ -14,7 +14,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('question_structures', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->id();
 			$table->foreignIdFor(\App\Models\Form::class)
 					->constrained('forms');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('question_structures');
+        Schema::dropIfExists('questions');
     }
 };

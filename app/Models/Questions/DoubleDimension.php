@@ -1,14 +1,14 @@
 <?php
 namespace App\Models\Questions;
 
-use App\Models\Question;
+use App\Models\QuestionContent;
 
 /**
  *
- * @property Question[] $questions
+ * @property QuestionContent[] $questions
  */
-class DoubleDimension extends BaseQuestion {
+class DoubleDimension extends Question {
 	public function questions() {
-		return $this->hasMany(Question::class, 'connected_to');
+		return $this->hasMany(QuestionContent::class, 'connected_to');
 	}
 }

@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::create('question_contents', function (Blueprint $table) {
             $table->id();
-			$table->foreignIdFor(\App\Models\QuestionStructure::class, 'connected_to')
-					->constrained('question_structures');
+			$table->foreignIdFor(\App\Models\Questions\Question::class, 'connected_to')
+					->constrained('questions');
 			$table->string('text');
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questions');
+        Schema::dropIfExists('question_contents');
     }
 };

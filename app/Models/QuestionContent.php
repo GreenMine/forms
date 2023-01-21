@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $id
  * @property string $text
  */
-class Question extends Model
+class QuestionContent extends Model
 {
     use HasFactory;
 	

@@ -5,7 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Enums\QuestionType;
 use App\Models\Form;
-use App\Models\Question;
+use App\Models\QuestionContent;
 use App\Models\QuestionStructure;
 use App\Models\Variant;
 use Illuminate\Database\Seeder;
@@ -64,9 +64,9 @@ class DatabaseSeeder extends Seeder
 		
 		Log::info("Creating $amount rand questions for $structureId");
 		
-		$questions = Question::factory($amount)->create([
+		$questions = QuestionContent::factory($amount)->create([
 			'connected_to' => $structureId
-		])->map(fn(Question $q) => $q->id)->toArray();
+		])->map(fn(QuestionContent $q) => $q->id)->toArray();
 		
 		Log::info("Successfully created $amount rand questions for $structureId");
 		
