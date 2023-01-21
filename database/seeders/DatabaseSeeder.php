@@ -6,10 +6,10 @@ namespace Database\Seeders;
 use App\Enums\QuestionType;
 use App\Models\Form;
 use App\Models\QuestionContent;
-use App\Models\QuestionStructure;
+use App\Models\Questions\Question;
 use App\Models\Variant;
+use Database\Factories\QuestionFactory;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 
 class DatabaseSeeder extends Seeder
@@ -24,36 +24,29 @@ class DatabaseSeeder extends Seeder
 		Form::factory(1)->create()->each(function(Form $form) {
 			Log::info("Created form \"$form->name\"");
 			$questions_amount = mt_rand(15, 30);
-			QuestionStructure::factory($questions_amount)->create([
-				'form_id' => $form->id
-			])->each(function(QuestionStructure $qStructure) {
+			QuestionFactory::new()
+				->count($questions_amount)
+				->create(['form_id' => $form->id])
+				->each(function(Question $qStructure) {
 				$qStructureId = $qStructure->id;
-				
+
 				Log::info("Created question structure(id $qStructureId)");
-				
+
 				//FIXME: match
-				$variants = array();
-				$questions = array();
 				switch($qStructure->type) {
 					case QuestionType::Single:
 					case QuestionType::Several:
-						$questions = $this->create_rand_questions($qStructureId, 1);
-						$variants = $this->create_rand_variants($qStructureId);
+						$this->create_rand_questions($qStructureId, 1);
+						$this->create_rand_variants($qStructureId);
 						break;
 					case QuestionType::DoubleDimension:
-						$variants = $this->create_rand_variants($qStructureId);
-						$questions = $this->create_rand_questions($qStructureId);
+						$this->create_rand_variants($qStructureId);
+						$this->create_rand_questions($qStructureId);
 						break;
 					case QuestionType::Text:
-						$questions = $this->create_rand_questions($qStructureId, 1);
+						$this->create_rand_questions($qStructureId, 1);
 						break;
 				}
-				
-				$qStructure->structure = json_encode([
-					'variants' => $variants,
-					'questions' => $questions
-				]);
-				$qStructure->save();
 			});
 		});
     }

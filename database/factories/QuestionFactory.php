@@ -2,13 +2,17 @@
 
 namespace Database\Factories;
 
+use App\Enums\QuestionType;
+use App\Models\QuestionContent;
+use App\Models\Questions\Question;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\QuestionContent>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Questions\Question>
  */
 class QuestionFactory extends Factory
 {
+	protected $model = Question::class;
     /**
      * Define the model's default state.
      *
@@ -17,7 +21,7 @@ class QuestionFactory extends Factory
     public function definition()
     {
         return [
-			'text' => $this->faker->realText(50) . '?'
+			'type' => $this->faker->randomElement(QuestionType::getAllValues())
         ];
     }
 }

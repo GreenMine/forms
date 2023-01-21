@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Form;
+use App\Repositories\FormRepository;
 
-class FormController extends Controller
-{
+class FormController extends Controller {
+	public function __construct(
+		private FormRepository $formRepository
+	) {}
+	
+	
 	public function show(int $formId) {
-		$form = Form::where('id', $formId)->with(['questions', 'questions.question', 'questions.variants'])->first();
+		$form = $this->formRepository->get($formId);
 		return view('form')->with('form', $form);
 	}
 }
