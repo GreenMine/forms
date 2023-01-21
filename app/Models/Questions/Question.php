@@ -4,6 +4,7 @@ namespace App\Models\Questions;
 use App\Enums\QuestionType;
 use App\Models\QuestionContent;
 use App\Models\Variant;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property QuestionType $type
  *
  * @property QuestionContent $question
- * @property Variant[] $variants
+ * @property Collection<int, Variant> $variants
  */
 class Question extends Model implements QuestionInterface {
 	use HasFactory, \Biscofil\LaravelSubmodels\HasSubModels;
@@ -22,6 +23,11 @@ class Question extends Model implements QuestionInterface {
 		'type' => QuestionType::class,
 	];
 	public $timestamps = false;
+	protected $with = ['question', 'variants'];
+	
+	public function questions() {
+		return $this->hasMany(QuestionContent::class, 'connected_to');
+	}
 	
 	public function question() {
 		return $this->hasOne(QuestionContent::class, 'connected_to');

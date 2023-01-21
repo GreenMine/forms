@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Questions\Question;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -14,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $name
  * @property string title
  * @property array $meta
- * @property Question[] questions
+ * @property Collection<int, Question> questions
  *
  * @property Carbon $created_at
  * @property Carbon $updated_at
@@ -23,6 +24,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Form extends Model
 {
     use HasFactory;
+	
+	protected $with = ['questions'];
 	
 	public function questions(): HasMany {
 		return $this->hasMany(Question::class);

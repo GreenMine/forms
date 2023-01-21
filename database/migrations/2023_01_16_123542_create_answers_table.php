@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
 			$table->foreignIdFor(\App\Models\Record::class)
 					->constrained('records');
+			$table->foreignIdFor(\App\Models\QuestionContent::class)
+					->constrained('question_contents');
 			$table->foreignIdFor(\App\Models\Variant::class)
 					->constrained('variants');
         });

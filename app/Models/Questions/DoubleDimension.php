@@ -2,10 +2,11 @@
 namespace App\Models\Questions;
 
 use App\Models\QuestionContent;
+use Illuminate\Database\Eloquent\Collection;
 
 /**
  *
- * @property QuestionContent[] $questions
+ * @property Collection<int, QuestionContent> $questions
  */
 class DoubleDimension extends Question {
 	public function questions() {
