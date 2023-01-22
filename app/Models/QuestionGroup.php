@@ -19,6 +19,8 @@ class QuestionGroup extends Model
 	
 	public $timestamps = false;
 	
+	protected $fillable = ['name'];
+	
 	public function questions() {
 		return $this->hasMany(Question::class);
 	}

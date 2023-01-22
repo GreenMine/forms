@@ -29,14 +29,14 @@ Route::group(['prefix' => 'admin'], function() {
 			'prefix' => '/{formId}/group',
 			'controller' => \App\Http\Controllers\Admin\GroupController::class
 	], function() {
-		Route::get('/create', 'store');
+		Route::post('/create', 'store');
 		Route::delete('/{groupId}', 'destroy');
 	});
 	Route::group([
 		'prefix' => '/{formId}/question',
 		'controller' => \App\Http\Controllers\Admin\QuestionController::class
 	], function() {
-		Route::get('/create', 'store');
+		Route::post('/create', 'store');
 		Route::delete('/{groupId}', 'destroy');
 	});
 	
