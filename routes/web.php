@@ -20,4 +20,3 @@ Route::get('/', function () {
 
 Route::get('/form/{formId}', [\App\Http\Controllers\FormController::class, 'show']);
 
-Route::get('/stats/{formId}', [\App\Http\Controllers\StatsController::class, 'show']);

@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\FormRepository;
+use App\Services\FormService;
 
 class FormController extends Controller {
 	public function __construct(
-		private FormRepository $formRepository
+		private FormService $formService
 	) {}
 	
 	
 	public function show(int $formId) {
-		$form = $this->formRepository->get($formId);
+		$form = $this->formService->get($formId);
 		return view('form')->with('form', $form);
 	}
 }

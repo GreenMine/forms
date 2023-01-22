@@ -15,5 +15,4 @@ class Variant extends Model
     use HasFactory;
 	
 	public $timestamps = false;
-	protected $hidden = ['connected_to'];
 }
