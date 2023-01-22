@@ -11,7 +11,7 @@ class FormController extends Controller {
 	
 	
 	public function show(int $formId) {
-		$form = $this->formRepository->getStats($formId);
+		$form = $this->formRepository->get($formId);
 		return view('form')->with('form', $form);
 	}
 }

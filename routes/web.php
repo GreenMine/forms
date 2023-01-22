@@ -17,4 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/form/{form}', [\App\Http\Controllers\FormController::class, 'show']);
+
+Route::get('/form/{formId}', [\App\Http\Controllers\FormController::class, 'show']);
+
+Route::get('/stats/{formId}', [\App\Http\Controllers\StatsController::class, 'show']);

@@ -24,6 +24,7 @@ class Question extends Model implements QuestionInterface {
 	];
 	public $timestamps = false;
 	protected $with = ['question', 'variants'];
+	protected $hidden = ['questions', 'question', 'variants'];
 	
 	public function questions() {
 		return $this->hasMany(QuestionContent::class, 'connected_to');
