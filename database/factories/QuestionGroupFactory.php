@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Form>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\QuestionGroup>
  */
-class FormFactory extends Factory
+class QuestionGroupFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,10 +16,8 @@ class FormFactory extends Factory
      */
     public function definition()
     {
-		
         return [
-			'name' => fake()->realText(100),
-			'title' => fake()->jobTitle(),
+			'name' => fake()->text(100)
         ];
     }
 }

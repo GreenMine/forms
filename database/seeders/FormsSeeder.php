@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\QuestionGroup;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Enums\QuestionType;
 use App\Models\Form;
@@ -23,10 +24,14 @@ class FormsSeeder extends Seeder
     {
 		Form::factory(1)->create()->each(function(Form $form) {
 			Log::info("Created form \"$form->name\"");
+			
+			/** @var QuestionGroup $group */
+			$group = QuestionGroup::factory()->create(['form_id' => $form->id]);
+			
 			$questions_amount = mt_rand(15, 30);
 			QuestionFactory::new()
 				->count($questions_amount)
-				->create(['form_id' => $form->id])
+				->create(['question_group_id' => $group->id])
 				->each(function(Question $qStructure) {
 					$qStructureId = $qStructure->id;
 				

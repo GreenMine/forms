@@ -12,7 +12,7 @@
         /* Styling the Body element i.e. Color,
         Font, Alignment */
         body {
-            background-color: #05c46b;
+            background-color: #f6fff6;
             font-family: Verdana;
             text-align: center;
         }

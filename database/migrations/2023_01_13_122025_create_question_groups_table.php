@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('forms', function (Blueprint $table) {
+        Schema::create('question_groups', function (Blueprint $table) {
             $table->id();
-			$table->string('title');
-			$table->string('name', 8192);
-			
-			$table->timestamps();
-			$table->softDeletes();
+			$table->string('name');
+			$table->foreignIdFor(\App\Models\Form::class)
+				->constrained('forms');
         });
     }
 
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('forms');
+        Schema::dropIfExists('question_groups');
     }
 };

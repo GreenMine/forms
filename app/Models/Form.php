@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $name
  * @property string title
  * @property array $meta
+ * @property Collection<int, QuestionGroup> groups
  * @property Collection<int, Question> questions
  *
  * @property Carbon $created_at
@@ -26,8 +27,13 @@ class Form extends Model
     use HasFactory;
 	
 	protected $with = ['questions'];
+	protected $fillable = ['title', 'name'];
 	
-	public function questions(): HasMany {
-		return $this->hasMany(Question::class);
+	public function groups() {
+		return $this->hasMany(QuestionGroup::class);
+	}
+	
+	public function questions() {
+		return $this->hasManyThrough(Question::class, QuestionGroup::class);
 	}
 }
